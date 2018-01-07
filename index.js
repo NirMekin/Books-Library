@@ -24,10 +24,10 @@ app.use('/savejson',(req,res) => {
     
     let str = req.body.str
     console.log(JSON.stringify(str))
-    fs.writeFile('./db/books.json',JSON.stringify(str),(err)=>{
+    fs.writeFile('./db/books2.json',JSON.stringify(str),(err)=>{
         if(err)
             res.send({Error : "can't save file"})
-        res.sendFile(`${__dirname}/db/books.json`);
+        res.sendFile(`${__dirname}/db/books2.json`);
     })
 })
 
