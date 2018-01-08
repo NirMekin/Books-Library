@@ -14,6 +14,13 @@ app.use( (req, res, next) => {
     next();
 });
 
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+
 app.get('/getbooks', (req, res) => {
     console.log(`send books.json`);
     res.sendFile(`${__dirname}/db/books.json`);
