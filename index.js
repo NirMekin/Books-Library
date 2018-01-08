@@ -14,7 +14,7 @@ app.use( (req, res, next) => {
     next();
 });
 
-app.get('/', (req, res) => {
+app.get('/getbooks', (req, res) => {
     console.log(`send books.json`);
     res.sendFile(`${__dirname}/db/books.json`);
 });
