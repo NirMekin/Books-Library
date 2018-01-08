@@ -2,6 +2,7 @@ const   express     = require('express'),
         bodyParser  = require('body-parser'),
         fs          = require('fs');
         app         = express(),
+        path        = require('path')
         port        = process.env.PORT || 3000;
 
 
@@ -14,6 +15,11 @@ app.use( (req, res, next) => {
     next();
 });
 
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 
 app.get('/getbooks', (req, res) => {
